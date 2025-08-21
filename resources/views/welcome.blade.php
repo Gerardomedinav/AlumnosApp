@@ -40,6 +40,11 @@
           <a href="{{ route('register') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg shadow transition">
             Registrarse
           </a>
+        <!-- Botón nuevo: Manual de usuario -->
+        <a href="{{ asset('manuals/manual-usuario.pdf') }}" download="Manual_Usuario.pdf"
+           class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg shadow transition border border-white/10">
+            Manual de usuario
+        </a>
         @endif
       @endif
     </div>
