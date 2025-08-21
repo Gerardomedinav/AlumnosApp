@@ -9,6 +9,10 @@
                 <option value="50">50</option>
             </select>
             <x-primary-button wire:click="create">Nuevo alumno</x-primary-button>
+            <!-- nuevo botón para descargar PDF -->
+            <a href="{{ route('alumnos.pdf') }}" target="_blank" class="inline-flex items-center px-3 py-2 border rounded bg-gray-800 text-white hover:bg-gray-700">
+                Descargar PDF
+            </a>
         </div>
     </div>
 

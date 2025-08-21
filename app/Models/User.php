@@ -101,4 +101,30 @@ class User extends Authenticatable
         }
         return asset('images/default-avatar.png');
     }
+    /**
+ * Devuelve el nombre completo del usuario (para usar en vistas).
+ * Maneja nombres/apellidos como array o string; si no hay nombre, devuelve el email.
+ */
+    public function getFullNameAttribute(): string
+    {
+    // Si los campos vienen como array (casts 'array'), unimos por espacio
+      $nombres = $this->nombres;
+      $apellidos = $this->apellidos;
+
+      if (is_array($nombres)) {
+        $nombresStr = implode(' ', $nombres);
+      } else {
+        $nombresStr = (string) ($nombres ?? '');
+      }
+
+       if (is_array($apellidos)) {
+        $apellidosStr = implode(' ', $apellidos);
+       } else {
+        $apellidosStr = (string) ($apellidos ?? '');
+       }
+
+     $full = trim($nombresStr . ' ' . $apellidosStr);
+
+    return $full !== '' ? $full : ($this->email ?? '');
+  }
 }
