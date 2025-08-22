@@ -1,5 +1,12 @@
 <?php
 
+if (!function_exists('env')) {
+    function env($key, $default = null) {
+        $value = getenv($key);
+        return $value === false ? $default : $value;
+    }
+}
+
 return [
 
     /*
@@ -122,5 +129,6 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+    
 
 ];
